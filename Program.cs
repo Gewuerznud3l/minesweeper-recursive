@@ -29,7 +29,7 @@ namespace minesweeper_recursive
             "h: nur für custom-level. Gibt die Höhe des Spielfeldes an\n" +
             "m: nur für custom-level. Gibt die Anzahl an Minen an\n" +
             "g: Anzahl Spiele, die gespielt werden sollen. Default: Unendlich\n" +
-            "u: 'Until Win' (Spielt so lange, bis ein win erzielt wurde)\n" +
+            "u: 'Until Win' (Spielt so lange, bis die Anzahl an wins erzielt wurde)\n" +
             "d: Spiel mit zufälligem Delay (anti-ban)\n" +
             "\n" +
             "Beispiele:\n" +
@@ -39,8 +39,8 @@ namespace minesweeper_recursive
             "\n" +
             "Default: easy-level mit Flaggen."
             ;
-        static bool noflag = false, incognito = false, untilwin = false, delay = false;
-        static short level = 1, width = 9, height = 9, mines = 20, wins = 0, losses = 0, games = -1;
+        static bool noflag = false, incognito = false, delay = false;
+        static short level = 1, width = 9, height = 9, mines = 20, wins = 0, losses = 0, games = -1, untilwin = -1;
         //buttons und web-navigation
         static string login = "/html/body/header/div/div/div/button[2]",
             usernameField = "/html/body/div[6]/div/div/form/div[2]/div[3]/div[1]/div/input",
@@ -114,7 +114,7 @@ namespace minesweeper_recursive
                         games = short.TryParse(match.Groups["val"].Value, out x) ? x : (short)1;
                         break;
                     case "u":
-                        untilwin = true;
+                        untilwin = short.TryParse(match.Groups["val"].Value, out x) ? x : (short)1;
                         break;
                     case "d":
                         delay = true;
@@ -217,7 +217,7 @@ namespace minesweeper_recursive
                 if (delay) 
                 {
                     Random random = new Random();
-                    Thread.Sleep(random.Next(100, 500));
+                    Thread.Sleep(random.Next(500, 1000));
                 }
                 for (short _ = 0; _ < 10000; _++)
                 {
@@ -247,7 +247,7 @@ namespace minesweeper_recursive
                 if (delay)
                 {
                     Random random = new Random();
-                    Thread.Sleep(random.Next(100, 500));
+                    Thread.Sleep(random.Next(500, 1000));
                 }
                 for (short _ = 0; _ < 10000; _++)
                 {
@@ -473,7 +473,7 @@ namespace minesweeper_recursive
                 {
                     wins++;
                     Console.WriteLine($"[{wins + losses}] won ({wins}:{losses})");
-                    if (untilwin) { driver.Quit(); Environment.Exit(0); }
+                    if (untilwin != -1 && untilwin <= wins) { driver.Quit(); Environment.Exit(0); }
                 }
                 else
                 {
