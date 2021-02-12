@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minesweeper-recursive", "minesweeper-recursive.csproj", "{B145DD6D-76D0-4A2A-9927-9867A96A42A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B145DD6D-76D0-4A2A-9927-9867A96A42A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B145DD6D-76D0-4A2A-9927-9867A96A42A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B145DD6D-76D0-4A2A-9927-9867A96A42A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B145DD6D-76D0-4A2A-9927-9867A96A42A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCDFC962-87CC-41CC-8D5C-924B11CBFB85}
+	EndGlobalSection
+EndGlobal
