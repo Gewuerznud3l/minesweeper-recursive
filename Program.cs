@@ -479,7 +479,7 @@ namespace minesweeper_recursive
                 {
                     losses++;
                     Console.WriteLine($"[{wins + losses}] lost ({wins}:{losses})");
-                    Thread.Sleep(100);
+                    /*Thread.Sleep(100);
                     driver.FindElement(By.XPath(cameraButton)).Click();
                     Thread.Sleep(100);
                     driver.SwitchTo().Window(driver.WindowHandles[2]);
@@ -487,7 +487,7 @@ namespace minesweeper_recursive
                     string url = driver.Url;
                     driver.Close();
                     driver.SwitchTo().Window(driver.WindowHandles[0]);
-                    client.DownloadFile(url, $"lostgame{losses}.png");
+                    client.DownloadFile(url, $"lostgame{losses}.png");*/
                 }
                 if (games != -1 && losses + wins >= games) { driver.Quit(); Environment.Exit(0); }
                 field = new short[width, height];
