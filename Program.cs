@@ -571,7 +571,6 @@ namespace minesweeper_recursive
                     }
                 }
                 if (playRandom(least[0], least[1])) { restart(false); }
-                //random click mit validate function kommt morgen!
             }
 
         }
